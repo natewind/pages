@@ -1,0 +1,135 @@
+*
+{
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+body
+{
+	padding-top: 25px;
+	background-color: #404040;
+	background-image: url(pics/texture.png);
+	background-attachment: fixed;
+}
+
+section
+{
+	display: block;
+	background: white;
+	margin: 0px auto 25px auto;
+	overflow: hidden;
+	padding: 1.6cm 1.8cm;
+	box-sizing: border-box;
+	background-clip: padding-box;
+	border: 9px solid transparent;
+	border-image: url(pics/shadow.png) 9 repeat;
+	width: calc(var(--w) + 9px);
+	height: calc(var(--h) + 9px);
+	font-family: "PT Serif", serif;
+	--std-margin: 40px;
+}
+
+section[size="A4"]
+{
+	--w: 21.0cm;
+	--h: 29.7cm;
+}
+
+section[size="A4"][layout="landscape"]
+{
+	--w: 29.7cm;
+	--h: 21.0cm;
+}
+
+section[size="A3"]
+{
+	--w: 29.7cm;
+	--h: 42.0cm;
+}
+
+section[size="A3"][layout="landscape"]
+{
+	--w: 42.0cm;
+	--h: 29.7cm;
+}
+
+section[size="A5"]
+{
+	--w: 14.8cm;
+	--h: 21.0cm;
+}
+
+section[size="A5"][layout="landscape"]
+{
+	--w: 21.0cm;
+	--h: 14.8cm;
+}
+
+p, table, ol, tex
+{
+	margin-bottom: 12px;
+}
+
+/*===========================================================================*/
+
+section > *:not(p):not(ol)
+{
+	margin-left: var(--std-margin);
+}
+
+section > p
+{
+	text-indent: var(--std-margin);
+}
+
+ol
+{
+	margin-left: var(--std-margin);
+}
+
+li > table
+{
+	width: 100%;
+}
+
+/*===========================================================================*/
+
+section > tex
+{
+	display: block;
+}
+
+table
+{
+	width: calc(100% - var(--std-margin));
+	border-collapse: collapse;
+	text-align: center;
+}
+
+td
+{
+	border: 1px solid black;
+}
+
+@section
+{
+	margin: 0;
+}
+
+@media print
+{
+	html, body
+	{
+		padding: 0;
+	}
+
+	section
+	{
+		margin: 0;
+		border: 0;
+		width: var(--w);
+		height: var(--h);
+		page-break-after: always;
+	}
+}
